@@ -6,14 +6,14 @@ import path from 'path'
 export const secret_key = 'my_token'
 
 interface Constructor {
-    new (...args: any): any
+    new (...args: unknown[]): unknown
     prefix: string
 }
 
 interface CollectionsItem {
     url: string
     method: 'get' | 'post'
-    handler: (...args: any) => any
+    handler: (...args: unknown[]) => unknown
     constructor: Constructor
 }
 
@@ -69,12 +69,13 @@ export function Post(pathname?: string) {
     }
 }
 
-export async function autoLoadRouter(): Promise<any> {
+export async function autoLoadRouter(): Promise<void> {
     const dirPath = path.resolve(__dirname, '../controllers')
 
     const files = fs.readdirSync(dirPath)
     for (const file of files) {
         // eslint-disable-next-line @typescript-eslint/no-extra-semi
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         await (import(`${dirPath}/${file}`) as any).default
     }
 

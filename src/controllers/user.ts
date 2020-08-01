@@ -36,7 +36,7 @@ export default class User {
                 },
                 secret_key,
                 {
-                    expiresIn: '15s',
+                    expiresIn: '2h',
                 }
             )
             return (ctx.body = {

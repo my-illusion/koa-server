@@ -84,6 +84,7 @@ export async function autoLoadRouter(): Promise<void> {
         let url = item.url
         if (prefix) url = `${prefix}${url}`
         api[item.method](url, item.handler)
+        console.log(`${url}\n`)
     })
 
     prefixCollections.forEach((prefix: string) => {

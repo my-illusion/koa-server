@@ -2,6 +2,8 @@ import Koa from 'koa'
 import KoaBody from 'koa-body'
 import koaJwt from 'koa-jwt'
 import koaCompress from 'koa-compress'
+import koaStatic from 'koa-static'
+import path from 'path'
 
 import koaMiddlewares from './middlewares'
 import { secret_key } from './router'
@@ -18,6 +20,8 @@ const app = new Koa()
 //     ctx.response.body = result
 //     next()
 // })
+app.use(koaStatic(path.resolve(__dirname, './public/')))
+
 app.use(koaCompress())
 
 app.use(KoaBody())

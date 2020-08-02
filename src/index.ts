@@ -4,7 +4,7 @@ import koaJwt from 'koa-jwt'
 import koaCompress from 'koa-compress'
 import koaStatic from 'koa-static'
 import path from 'path'
-import cors from 'koa2-cors'
+// import cors from 'koa2-cors'
 
 import koaMiddlewares from './middlewares'
 import { secret_key } from './router'

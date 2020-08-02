@@ -6,7 +6,6 @@ const uploadFile = () => {
     return async function (ctx: Context, next: Next): Promise<void> {
         ctx.uploadFile = (function (ctx: Context) {
             return async function () {
-                console.log('jjj')
                 const file = ctx.request.files.image
                 const reader = fs.createReadStream(file.path)
                 const filePath =
@@ -23,4 +22,4 @@ const uploadFile = () => {
     }
 }
 
-export default uploadFile
+export default uploadFile()

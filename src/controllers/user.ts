@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 
 import mysql from '../models/mysql'
 import { Context } from 'koa'
-import { secret_key, Controller, Post, Get } from '../router'
+import { secret_key, Controller, Post } from '../router'
 
 @Controller('/api')
 export default class User {

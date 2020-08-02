@@ -7,6 +7,7 @@ import path from 'path'
 export default class MarkDown {
     @Post()
     async uploadImage(ctx: Context): Promise<void> {
+        console.log('jjjj')
         const file = ctx.request.files.image
         const reader = fs.createReadStream(file.path)
         const filePath =
